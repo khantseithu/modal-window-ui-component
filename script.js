@@ -21,12 +21,11 @@ function removeModal() {
 for (let i = 0; i < showBtns.length; i++) {
   showBtns[i].addEventListener('click', addModal);
   closeBtn.addEventListener('click', removeModal);
+  document.addEventListener('keydown', function (evt) {
+    console.log(evt);
+
+    if (evt.key === 'Escape' && !modal.classList.contains('hidden')) {
+      removeModal();
+    }
+  });
 }
-
-document.addEventListener('keydown', function (evt) {
-  console.log(evt);
-
-  if (evt.key === 'Escape') {
-    removeModal();
-  }
-});
